@@ -6,15 +6,19 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    required this.isEnabled,
     this.isLoading = false,
-    this.backgroundColor = const Color(0xff0D47A1),
+    this.enabledColor = const Color(0xff0D47A1),
+    this.disabledColor = Colors.grey,
     this.textColor = Colors.white,
   });
 
   final String text;
   final VoidCallback? onPressed;
+  final bool isEnabled;
   final bool isLoading;
-  final Color backgroundColor;
+  final Color enabledColor;
+  final Color disabledColor;
   final Color textColor;
 
   @override
@@ -23,10 +27,11 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 56.h,
       child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
+        onPressed: (isEnabled && !isLoading) ? onPressed : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          disabledBackgroundColor: Colors.grey,
+          backgroundColor: isEnabled ? enabledColor : disabledColor,
+          disabledBackgroundColor:
+              isEnabled ? enabledColor : disabledColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.r),
