@@ -1,8 +1,10 @@
+import 'package:exam_app/config/di/di.dart';
 import 'package:exam_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 void main() {
+  configureDependencies();
   runApp(
     ScreenUtilPlusInit(
       designSize: const Size(375, 812),
@@ -21,10 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: CustomTextFormField(
-        label: "Email",
-        hintText: "Enter your email",
-      ),
+      home: CustomTextFormField(label: "Email", hintText: "Enter your email"),
     );
   }
 }
