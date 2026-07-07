@@ -1,3 +1,4 @@
+import 'package:exam_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
@@ -8,7 +9,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.isEnabled,
     this.isLoading = false,
-    this.enabledColor = const Color(0xff0D47A1),
+    this.enabledColor = AppColors.primary,
     this.disabledColor = Colors.grey,
     this.textColor = Colors.white,
   });
