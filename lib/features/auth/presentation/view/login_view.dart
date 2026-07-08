@@ -1,10 +1,10 @@
 import 'package:exam_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_text_form_field.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
 
-class login extends StatelessWidget {
-  const login({super.key});
+class login_view extends StatelessWidget {
+  const login_view({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class login extends StatelessWidget {
             CustomTextFormField(label: "Email", hintText: "Enter your email"),
             CustomTextFormField(label: "Password", hintText: "Enter your password"),
             Row(children: [Checkbox(value: false, onChanged: (value){}),Text("Remember me"), TextButton(onPressed: (){}, child: Text("Forget Password?"),),],mainAxisAlignment: MainAxisAlignment.spaceBetween,),
-            SizedBox(height: 48,),
+            SizedBox(height:48,),
             CustomButton(text: "Login", onPressed: (){}, isEnabled: true,),
             SizedBox(height: 16,),
             Row(
