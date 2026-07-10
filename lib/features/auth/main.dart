@@ -1,3 +1,4 @@
+import 'package:exam_app/config/di/di.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
@@ -5,6 +6,7 @@ import 'presentation/view/login_view.dart';
 import 'presentation/view/register_view.dart';
 
 void main() {
+   configureDependencies();
   runApp(
     ScreenUtilPlusInit(
       designSize: const Size(375, 812),

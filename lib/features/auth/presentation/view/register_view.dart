@@ -1,7 +1,15 @@
+import 'package:exam_app/config/di/di.dart';
 import 'package:exam_app/core/widgets/custom_button.dart';
 import 'package:exam_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+
+import '../../../../config/base_response/base_response.dart';
+import '../../data/datasource/remote/auth_remote_datasource.dart';
+import '../../data/models/requests/login_request_dto.dart';
+import '../../data/models/requests/register_request_dto.dart';
+import '../../data/models/responses/login_response_dto.dart';
+import '../../data/models/responses/register_response_dto.dart';
 
 class register_view extends StatelessWidget {
   const register_view({super.key});
@@ -80,7 +88,28 @@ class register_view extends StatelessWidget {
                 SizedBox(height: 48.h),
                 CustomButton(
                   text: "Sign up",
-                  onPressed: () {},
+                  onPressed: () async {
+                    final request = RegisterRequestDto(
+                      username: "elevate12345",
+                      firstName: "Ahmed",
+                      lastName: "Nasser",
+                      email: "ahmed12345@1elevate.com",
+                      password: "Elevate@123",
+                      rePassword: "Elevate@123",
+                      phone: "01094437111",
+                    );
+
+                    print(request.toJson());
+
+                    final response = await getIt<AuthRemoteDatasource>()
+                        .register(request);
+
+                    if (response is SuccessResponse<RegisterResponseDto>) {
+                      print(response.data);
+                    } else if (response is ErrorResponse<RegisterResponseDto>) {
+                      print(response.error);
+                    }
+                  },
                   isEnabled: true,
                 ),
                 SizedBox(height: 16.h),
