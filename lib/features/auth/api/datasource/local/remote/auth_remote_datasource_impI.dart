@@ -27,7 +27,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       print("REQUEST: ${e.requestOptions.uri}");
 
       return ErrorResponse(
-        e.response?.data.toString() ?? e.message ?? "Unknown Error",
+        errMessage: e.response?.data.toString() ?? e.message ?? "Unknown Error",
       );
     }
   }
@@ -45,7 +45,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       print("REQUEST: ${e.requestOptions.uri}");
 
       return ErrorResponse(
-        e.response?.data.toString() ?? e.message ?? "Unknown Error",
+        errMessage: e.response?.data.toString() ?? e.message ?? "Unknown Error",
       );
     }
   }

@@ -1,4 +1,5 @@
-  import 'package:json_annotation/json_annotation.dart';
+  import 'package:exam_app/features/auth/domain/entities/user_entity.dart';
+import 'package:json_annotation/json_annotation.dart';
 
   part 'user_dto.g.dart';
 
@@ -42,9 +43,23 @@
       required this.isVerified,
       required this.createdAt,
     });
+    UserEntity toDomain() {
+      return UserEntity(
+        id: id,
+        username: username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        role: role,
+        isVerified: isVerified,
+        createdAt: createdAt.toIso8601String(),
+      );
+    }
 
     factory UserDto.fromJson(Map<String, dynamic> json) =>
         _$UserDtoFromJson(json);
 
     Map<String, dynamic> toJson() => _$UserDtoToJson(this);
   }
+ 

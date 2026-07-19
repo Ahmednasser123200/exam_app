@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../domain/entities/signup_response_entity.dart';
 import 'user_dto.dart';
 
 part 'register_response_dto.g.dart';
@@ -20,6 +21,14 @@ class RegisterResponseDto {
     required this.token,
     required this.user,
   });
+
+  SignupResponseEntity toDomain() {
+    return SignupResponseEntity(
+      message: message,
+      token: token,
+      user: user.toDomain(),
+    );
+  }
 
   factory RegisterResponseDto.fromJson(Map<String, dynamic> json) =>
       _$RegisterResponseDtoFromJson(json);
